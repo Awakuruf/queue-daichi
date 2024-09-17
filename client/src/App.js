@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { styled } from '@mui/system';
 import axios from 'axios';
 
-const serverURI = 'https://queue-daichi-server.onrender.com'
-
 // Custom styled component using Material-UI styling
 const StyledContainer = styled(Container)({
   marginTop: '50px',
@@ -33,7 +31,7 @@ function App() {
   // Fetch the queue from the server
   const fetchQueue = async () => {
     try {
-      const response = await axios.get(serverURI + '/queue');
+      const response = await axios.get('https://queue-daichi-server.onrender.com/queue');
       setQueue(response.data);
     } catch (error) {
       console.error('Error fetching queue:', error);
@@ -44,7 +42,7 @@ function App() {
   const joinQueue = async () => {
     if (name.trim() !== '' && questionTopic.trim() !== '') {
       try {
-        await axios.post(serverURI + '/join', { name, questionTopic });
+        await axios.post('https://queue-daichi-server.onrender.com/join', { name, questionTopic });
         setName(''); // Clear input fields
         setQuestionTopic('');
         fetchQueue(); // Update the queue
@@ -57,7 +55,7 @@ function App() {
   // Move to the next student
   const nextStudent = async () => {
     try {
-      await axios.post(serverURI + '/next');
+      await axios.post('https://queue-daichi-server.onrender.com/next');
       fetchQueue(); // Update the queue
     } catch (error) {
       console.error('Error removing student:', error);
