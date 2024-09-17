@@ -8,9 +8,9 @@ const app = express();
 const port = 3000;
 
 // Enable CORS for all requests
-app.use(cors());
+app.use(cors({ origin: 'https://cpsc-455-assignment-daichi-client.onrender.com' }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.json());
 
 // MongoDB connection
 const uri = process.env.MONGODB_URI;
