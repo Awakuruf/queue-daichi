@@ -31,7 +31,7 @@ function App() {
   // Fetch the queue from the server
   const fetchQueue = async () => {
     try {
-      const response = await axios.get('/queue');
+      const response = await axios.get('http://localhost:3000/queue');
       setQueue(response.data);
     } catch (error) {
       console.error('Error fetching queue:', error);
@@ -42,7 +42,7 @@ function App() {
   const joinQueue = async () => {
     if (name.trim() !== '' && questionTopic.trim() !== '') {
       try {
-        await axios.post('/join', { name, questionTopic });
+        await axios.post('http://localhost:3000/join', { name, questionTopic });
         setName(''); // Clear input fields
         setQuestionTopic('');
         fetchQueue(); // Update the queue
@@ -55,7 +55,7 @@ function App() {
   // Move to the next student
   const nextStudent = async () => {
     try {
-      await axios.post('/next');
+      await axios.post('http://localhost:3000/next');
       fetchQueue(); // Update the queue
     } catch (error) {
       console.error('Error removing student:', error);
