@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 // Enable CORS for all requests
-app.use(cors({ origin: 'https://cpsc-455-assignment-daichi-client.onrender.com' }));
+app.use(cors({ origin: 'https://queue-daichi-client.onrender.com' }));
 app.use(bodyParser.json());
 app.use(express.json());
 
