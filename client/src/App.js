@@ -75,7 +75,7 @@ function App() {
         transition={{ type: 'spring', stiffness: 150 }}
       >
         <Typography variant="h3" gutterBottom>
-          Student Queue
+          Cogs 300 L02 Queue
         </Typography>
 
         <Box sx={{ marginBottom: 2 }}>
